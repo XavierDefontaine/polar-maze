@@ -10,29 +10,29 @@ def initialise_player(grid):
   return grid
 
 def move_player(grid, direction):
-  player_location = (np.where(grid == 1))
-  grid[player_location] = 0
-
+  previous_player_location = (np.where(grid == 1))
   if direction == 'R':
-    grid[
-      player_location[0],
-      player_location[1] + 1,
-    ] = 1
+    new_player_location = [
+      previous_player_location[0],
+      previous_player_location[1] + 1,
+    ]
   elif direction == 'D':
-    grid[
-      player_location[0] + 1,
-      player_location[1],
-    ] = 1
+    new_player_location = [
+      previous_player_location[0] + 1,
+      previous_player_location[1],
+    ]
   elif direction == 'U':
-    grid[
-      player_location[0] - 1,
-      player_location[1],
-    ] = 1
+    new_player_location = [
+      previous_player_location[0] - 1,
+      previous_player_location[1],
+    ]
   elif direction == 'L':
-    grid[
-      player_location[0],
-      player_location[1] - 1,
-    ] = 1
+    new_player_location = [
+      previous_player_location[0],
+      previous_player_location[1] - 1,
+    ]
+  grid[previous_player_location] = 0
+  grid[new_player_location] = 1
   return grid
 
 def initialise_finish_line(grid, row = -1, column = -1):
