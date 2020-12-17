@@ -38,7 +38,6 @@ class InitialisePlayerTest(unittest.TestCase):
 
 class MovePlayerTest(unittest.TestCase):
  
-
   def test_player_starts_in_top_left_and_moves_right(self):
     grid = np.array([
       [1, 0, 0, 0, 0],
@@ -95,6 +94,26 @@ class MovePlayerTest(unittest.TestCase):
     ])
     actual_result = move_player(grid, 'U')
     np.testing.assert_array_equal(expected_result, actual_result)
+
+  def test_player_can_move_left(self):
+    grid = np.array([
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+    ])
+
+    expected_result = np.array([
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 1, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+    ])
+    actual_result = move_player(grid, 'L')
+    np.testing.assert_array_equal(expected_result, actual_result)
+
 
 
 if __name__ == '__main__':
