@@ -32,7 +32,12 @@ def move_player(grid, direction):
       previous_player_location[1] - 1,
     ]
   grid[previous_player_location] = 0
-  grid[new_player_location] = 1
+
+  if grid[new_player_location] == 2:
+    print("You won")
+  else:
+    grid[new_player_location] = 1
+
   return grid
 
 def initialise_finish_line(grid, row = -1, column = -1):

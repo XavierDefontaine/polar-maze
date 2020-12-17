@@ -1,6 +1,6 @@
 import unittest
 from unittest import mock
-from unittest.mock import patch
+from unittest.mock import patch, call
 import numpy as np
 from polar_maze import make_grid
 from polar_maze import initialise_player
@@ -124,7 +124,7 @@ class InitialiseFinishLineTest(unittest.TestCase):
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0],
     ])
-    expected_result = grid = np.array([
+    expected_result = np.array([
       [1, 0, 0, 0, 0],
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0],
@@ -144,7 +144,7 @@ class InitialiseFinishLineTest(unittest.TestCase):
     ])
     row = 2
     column = 3
-    expected_result = grid = np.array([
+    expected_result = np.array([
       [1, 0, 0, 0, 0],
       [0, 0, 0, 0, 0],
       [0, 0, 0, 2, 0],
@@ -154,8 +154,19 @@ class InitialiseFinishLineTest(unittest.TestCase):
     actual_result = initialise_finish_line(grid, row, column)
     np.testing.assert_array_equal(expected_result, actual_result)
 
+  @patch('builtins.print', return_value = "You won")
+  def test_player_wins_if_crossing_finish_line(self, mock_print):
 
-
+    grid = np.array([
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 1, 2],
+    ])
+    move_player(grid, "R")
+    expected_result = call("You won")
+    self.assertEqual(expected_result, mock_print.call_args_list[0])
 
 if __name__ == '__main__':
   unittest.main(verbosity = 2)
