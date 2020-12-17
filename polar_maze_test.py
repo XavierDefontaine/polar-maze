@@ -3,11 +3,6 @@ import numpy as np
 from polar_maze import make_grid
 
 class MakeGridTest(unittest.TestCase):
-  # def test_make_grid_returns_numpy_array(self):
-  #   expected_types = [(np.array, dtype=int), list]
-  #   actual_type = make_grid()
-  #   self.assertIn(actual_type, expected_types)
-
   def test_check_grid_has_a_single_zero_row(self):
     expected_result = np.array([0])
     actual_result = make_grid(1)
