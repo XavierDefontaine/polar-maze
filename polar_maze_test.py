@@ -4,6 +4,7 @@ from unittest.mock import patch
 import numpy as np
 from polar_maze import make_grid
 from polar_maze import initialise_player
+from polar_maze import move_player
 
 class MakeGridTest(unittest.TestCase):
   def test_check_grid_has_a_single_zero_row(self):
@@ -35,8 +36,24 @@ class InitialisePlayerTest(unittest.TestCase):
     actual_result = initialise_player(grid)
     np.testing.assert_array_equal(expected_result, actual_result)
 
-
-    
+class MovePlayerTest(unittest.TestCase):
+  def test_player_starts_in_top_left_and_moves_right(self):
+    grid = np.array([
+      [1, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+    ])
+    expected_result = np.array([
+      [0, 1, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+    ])
+    actual_result = move_player(grid, 'R')
+    np.testing.assert_array_equal(expected_result, actual_result)
 
     
 
