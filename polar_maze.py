@@ -34,3 +34,7 @@ def move_player(grid, direction):
       player_location[1] - 1,
     ] = 1
   return grid
+
+def initialise_finish_line(grid, row = -1, column = -1):
+  grid[row, column] = 2
+  return grid

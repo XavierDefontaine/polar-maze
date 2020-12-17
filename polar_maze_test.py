@@ -5,6 +5,7 @@ import numpy as np
 from polar_maze import make_grid
 from polar_maze import initialise_player
 from polar_maze import move_player
+from polar_maze import initialise_finish_line
 
 class MakeGridTest(unittest.TestCase):
   def test_check_grid_has_a_single_zero_row(self):
@@ -20,11 +21,11 @@ class MakeGridTest(unittest.TestCase):
 class InitialisePlayerTest(unittest.TestCase):
   def test_player_starts_in_top_left_and_is_represented_by_1(self):
     grid = np.array([
-      [0,0,0,0,0],
-      [0,0,0,0,0],
-      [0,0,0,0,0],
-      [0,0,0,0,0],
-      [0,0,0,0,0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
     ])
     expected_result = np.array([
       [1, 0, 0, 0, 0],
@@ -113,6 +114,46 @@ class MovePlayerTest(unittest.TestCase):
     ])
     actual_result = move_player(grid, 'L')
     np.testing.assert_array_equal(expected_result, actual_result)
+
+class InitialiseFinishLineTest(unittest.TestCase):
+  def test_finish_line_is_initialised_at_bottom_right_as_default_and_represented_by_2(self):
+    grid = np.array([
+      [1, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+    ])
+    expected_result = grid = np.array([
+      [1, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 2],
+    ])
+    actual_result = initialise_finish_line(grid)
+    np.testing.assert_array_equal(expected_result, actual_result)
+
+  def test_finish_line_does_not_have_to_be_bottom_right_if_other_coordinates_are_entered(self):
+    grid = np.array([
+      [1, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+    ])
+    row = 2
+    column = 3
+    expected_result = grid = np.array([
+      [1, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 2, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+    ])
+    actual_result = initialise_finish_line(grid, row, column)
+    np.testing.assert_array_equal(expected_result, actual_result)
+
 
 
 
