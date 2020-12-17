@@ -18,4 +18,10 @@ def move_player(grid, direction):
       player_location[0],
       player_location[1] + 1,
     ] = 1
+  elif direction == 'D':
+    grid[player_location] = 0
+    grid[
+      player_location[0] + 1,
+      player_location[1],
+    ] = 1
   return grid
