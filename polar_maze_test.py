@@ -77,7 +77,25 @@ class MovePlayerTest(unittest.TestCase):
     actual_result = move_player(grid, 'D')
     np.testing.assert_array_equal(expected_result, actual_result)
 
-    
+  def test_player_can_move_up(self):
+    grid = np.array([
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+    ])
+
+    expected_result = np.array([
+      [0, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+    ])
+    actual_result = move_player(grid, 'U')
+    np.testing.assert_array_equal(expected_result, actual_result)
+
 
 if __name__ == '__main__':
   unittest.main(verbosity = 2)
