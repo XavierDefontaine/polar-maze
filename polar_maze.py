@@ -3,7 +3,42 @@ import numpy as np
 class Game():
 
   def __init__(self):
-    pass
+    # self.grid = actually_construct_grid()  
+    # grid = make_grid(row,column)
+    # initialise_player
+    # initialise_finish_line
+    # print(grid)
+
+    # METHOD get grid dimentions
+    #   ASK the player if they want a square or rectangle
+    #   IF 'square'
+    #   THEN ask for the size of the square 
+    #     RETURN a tuple of (number entered, number entered)
+    #   ELSE
+    #     ASK for height
+    #     ASK for length
+    #     RETURN a tuple of (height, length)
+
+    """
+    METHOD actually construct grid
+      CALL get grid dimentions
+        grid_dimentions = tuple of (x, y) OR (x, x)
+      CALL make grid
+        USE grid_dimentions
+      # CALL init player location
+      # CALL init finish
+      RETURN grid
+
+    """
+
+  # def play_game(self):
+  #   start_game()
+  #   > loop
+  #   print("Enter your next move (L,R,U,D)")
+  #   move = input()
+  #   new_grid = move_player(grid, move)
+  #   print(new_grid)
+  #   # break when winning
 
   def make_grid(self, row, column = None):
     if column == None:
@@ -50,21 +85,3 @@ class Game():
     grid[row, column] = 2
     return grid
 
-
-
-# def play_game(self):
-#   start_game()
-#   > loop
-#   print("Enter your next move (L,R,U,D)")
-#   move = input()
-#   new_grid = move_player(grid, move)
-#   print(new_grid)
-#   # break when winning
-
-# def start_game(self):
-#   print("Enter the number of rows and columns")
-#   row= input(), column=input()
-#   grid = make_grid(row,column)
-#   initialise_player
-#   initialise_finish_line
-#   print(grid)

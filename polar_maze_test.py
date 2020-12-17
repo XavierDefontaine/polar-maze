@@ -175,7 +175,9 @@ class InitialiseFinishLineTest(unittest.TestCase):
     expected_result = call("You won")
     self.assertEqual(expected_result, mock_print.call_args_list[0])
 
-
+  @patch('builtins.input', return_value)
+  def test_get_grid_dimentions_if_square(self):
+    
 
 
 
