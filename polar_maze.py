@@ -65,7 +65,7 @@ class Game():
 
   def get_player_move_choice(self):
     player_choice = input("What direction do you want to move?\nType U D L or R\n")
-    return "L"
+    return player_choice
 """METHOD get player move choice
 ASK player what direction to move
 RECEIVE input

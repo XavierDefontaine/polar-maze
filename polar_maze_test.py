@@ -223,6 +223,17 @@ class GetPlayerMoveChoiceTest(unittest.TestCase):
     self.assertEqual(actual_result, expected_result)
     self.assertGreaterEqual(mock_input.call_count, 1)
     self.assertEqual(mock_input.call_args_list[2], call("What direction do you want to move?\nType U D L or R\n"))
+  
+  @patch('builtins.input', side_effect = ["square", 5, "D"])
+  def test_get_player_move_choice_returns_D_for_input_D(self, mock_input):
+    game = Game()
+
+    expected_result = "D"
+    actual_result = game.get_player_move_choice()
+
+    self.assertEqual(actual_result, expected_result)
+    self.assertGreaterEqual(mock_input.call_count, 1)
+    self.assertEqual(mock_input.call_args_list[2], call("What direction do you want to move?\nType U D L or R\n"))
 
 if __name__ == '__main__':
   unittest.main(verbosity = 2)
