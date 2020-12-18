@@ -235,5 +235,22 @@ class GetPlayerMoveChoiceTest(unittest.TestCase):
     self.assertGreaterEqual(mock_input.call_count, 1)
     self.assertEqual(mock_input.call_args_list[2], call("What direction do you want to move?\nType U D L or R\n"))
 
+## TO DO:
+
+# class PrintGridTest(unittest.TestCase):
+#   @patch('polar_maze.Game.__init__', return_value = None)
+#   @patch('builtins.print', return_value = """[[1 0 0 0 0]
+#       [0 0 0 0 0]]""")
+#   def test_print_grid(self, mock_print, mock_init):
+#     game = Game()
+#     game.grid = np.array([
+#       [1, 0, 0, 0, 0],
+#       [0, 0, 0, 0, 0],
+#     ])
+#     expected_result = call("""[[1 0 0 0 0]
+#       [0 0 0 0 0]]""")
+#     game.print_grid()
+#     self.assertEqual(expected_result, mock_print.call_args_list[0])
+
 if __name__ == '__main__':
   unittest.main(verbosity = 2)

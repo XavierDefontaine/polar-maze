@@ -66,28 +66,22 @@ class Game():
   def get_player_move_choice(self):
     player_choice = input("What direction do you want to move?\nType U D L or R\n")
     return player_choice
-"""METHOD get player move choice
-ASK player what direction to move
-RECEIVE input
-RETURN input
-"""
+
+  def print_grid(self):
+    print(self.grid)
+
+
+
+
 
 """METHOD make move
 CALL get player move choice
 CALL move player
+    
+next_move = get_player_move_choice()
+move_player(next_move)
+
 """
-
-"""METHOD render game on screen
-START loop
-  PRINT grid
-  CALL make move
-  BREAK if player reaches finish line
-"""
-
-
-
-
-
 
 
 """IF name == main
