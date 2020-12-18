@@ -62,3 +62,32 @@ class Game():
 
   def initialise_finish_line(self, row = -1, column = -1):
     self.grid[row, column] = 2
+
+"""METHOD get player move choice
+ASK player what direction to move
+RECEIVE input
+RETURN input
+"""
+
+"""METHOD make move
+CALL get player move choice
+CALL move player
+"""
+
+"""METHOD render game on screen
+START loop
+  PRINT grid
+  CALL make move
+  BREAK if player reaches finish line
+"""
+
+
+
+
+
+
+
+"""IF name == main
+START loop
+  CALL render game on screen
+"""

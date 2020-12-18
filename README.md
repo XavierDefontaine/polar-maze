@@ -1,7 +1,7 @@
 # Polar Maze
 
-~~Use numpy array as the basis\~~
-~~Try to move from top-left to bottom-right\~~
+~~Use numpy array as the basis~~\
+~~Try to move from top-left to bottom-right~~\
 Create render game\
 Guard clause to not go over the edge of the board\
 Then think about adding a blocker (later think about adding multiple blockers)
