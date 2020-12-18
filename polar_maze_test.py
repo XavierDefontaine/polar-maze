@@ -212,5 +212,17 @@ class GetGridDimentionsTest(unittest.TestCase):
     self.assertEqual(mock_input.call_args_list[1], call("How many rows in the rectangle?"))
     self.assertEqual(mock_input.call_args_list[2], call("How many columns in the rectangle?"))
 
+class GetPlayerMoveChoiceTest(unittest.TestCase):
+  @patch('builtins.input', side_effect = ["square", 5, "L"])
+  def test_get_player_move_choice_returns_L_for_input_L(self, mock_input):
+    game = Game()
+
+    expected_result = "L"
+    actual_result = game.get_player_move_choice()
+
+    self.assertEqual(actual_result, expected_result)
+    self.assertGreaterEqual(mock_input.call_count, 1)
+    self.assertEqual(mock_input.call_args_list[2], call("What direction do you want to move?\nType U D L or R\n"))
+
 if __name__ == '__main__':
   unittest.main(verbosity = 2)

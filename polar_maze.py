@@ -63,6 +63,9 @@ class Game():
   def initialise_finish_line(self, row = -1, column = -1):
     self.grid[row, column] = 2
 
+  def get_player_move_choice(self):
+    player_choice = input("What direction do you want to move?\nType U D L or R\n")
+    return "L"
 """METHOD get player move choice
 ASK player what direction to move
 RECEIVE input
