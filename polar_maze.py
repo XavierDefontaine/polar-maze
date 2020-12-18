@@ -56,7 +56,7 @@ class Game():
 
     if self.grid[new_player_location] == 2:
       print("You won")
-      return
+      return False
     else:
       self.grid[new_player_location] = 1
 
@@ -70,21 +70,10 @@ class Game():
   def print_grid(self):
     print(self.grid)
 
-
-
-
-
-"""METHOD make move
-CALL get player move choice
-CALL move player
-    
-next_move = get_player_move_choice()
-move_player(next_move)
-
-"""
-
-
-"""IF name == main
-START loop
-  CALL render game on screen
-"""
+if __name__ == '__main__':
+  game = Game ()
+  while True:
+    game.print_grid()
+    game.move_player(
+      game.get_player_move_choice()
+    )
